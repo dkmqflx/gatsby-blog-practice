@@ -24,10 +24,9 @@ const info: FunctionComponent<InfoPageProps> = function ({
   Text
   return (
     <div>
-      <Text text={title}></Text>
-      <Text text={description}></Text>
-      <Text text={author}></Text>
-      <Link to="/">To Main</Link>
+      {title}
+      {description}
+      {author}
     </div>
   )
 }
