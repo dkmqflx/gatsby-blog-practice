@@ -10,6 +10,7 @@ const ProfileImageWrapper = styled(GatsbyImage)`
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
+  margin-right: 0.875rem;
 `
 
 const ProfileImage: FunctionComponent<ProfileImageProps> = function ({

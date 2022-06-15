@@ -3,37 +3,17 @@ import styled from '@emotion/styled'
 import ProfileImage from 'components/Main/ProfileImage'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 
-const Background = styled.div`
-  width: 100%;
-  background-image: linear-gradient(60deg, #29323c 0%, #485563 100%);
-  color: #ffffff;
-`
-
-const Wrapper = styled.div`
+const Wrapper = styled.header`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-  width: 768px;
-  height: 400px;
+  align-items: center;
+  color: #222222;
+  max-width: 768px;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    width: 100%;
-    height: 300px;
-    padding: 0 20px;
-  }
 `
 
-const SubTitle = styled.div`
-  font-size: 20px;
-  font-weight: 400;
-`
-
-const Title = styled.div`
-  margin-top: 5px;
-  font-size: 35px;
-  font-weight: 700;
+const UserLink = styled.a`
+  text-decoration: underline;
+  text-underline-position: under;
 `
 
 type IntroductionProps = {
@@ -44,16 +24,17 @@ const Introduction: FunctionComponent<IntroductionProps> = function ({
   profileImage,
 }) {
   return (
-    <Background>
-      <Wrapper>
-        <ProfileImage profileImage={profileImage} />
+    <Wrapper>
+      <ProfileImage profileImage={profileImage} />
 
+      <div>
         <div>
-          <SubTitle>Nice to Meet You,</SubTitle>
-          <Title>I'm Junior Frontend Developer Hyun.</Title>
+          <span>Personal blog by </span>
+          <UserLink href="/">"User Name"</UserLink>
         </div>
-      </Wrapper>
-    </Background>
+        <p>I'm Junior Frontend Developer.</p>
+      </div>
+    </Wrapper>
   )
 }
 
