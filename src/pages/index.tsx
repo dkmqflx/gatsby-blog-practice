@@ -35,6 +35,12 @@ type IndexPageProps = {
   }
 }
 
+const Wrapper = styled.div`
+  margin: 0 auto;
+  max-width: 678px;
+  padding: 2rem;
+`
+
 const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
@@ -80,7 +86,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   )
 
   return (
-    <>
+    <Wrapper>
       <Introduction profileImage={gatsbyImageData} />
 
       <Template
@@ -95,7 +101,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         />
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </Template>
-    </>
+    </Wrapper>
   )
 }
 
