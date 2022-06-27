@@ -37,7 +37,7 @@ type IndexPageProps = {
 
 const Wrapper = styled.div`
   margin: 0 auto;
-  max-width: 678px;
+  max-width: 768px;
   padding: 2rem;
 `
 
@@ -130,11 +130,6 @@ export const getPostList = graphql`
             summary
             date(formatString: "YYYY.MM.DD.")
             categories
-            thumbnail {
-              childImageSharp {
-                gatsbyImageData(width: 768, height: 400)
-              }
-            }
           }
         }
       }

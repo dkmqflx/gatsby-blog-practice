@@ -22,7 +22,7 @@ type GatsbyLinkProps = {
 const CategoryListWrapper = styled.div`
   display: flex;
   flex-wrap: wrap;
-  width: 768px;
+  width: 100%;
   margin: 100px auto 0;
 
   @media (max-width: 768px) {
