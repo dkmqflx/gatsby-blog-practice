@@ -1,8 +1,6 @@
 import React, { useMemo, FunctionComponent } from 'react'
 import styled from '@emotion/styled'
-import GlobalStyle from 'components/Common/GlobalStyle'
 import Introduction from 'components/Main/Introduction'
-import Footer from 'components/Common/Footer'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import { graphql } from 'gatsby'
@@ -21,6 +19,8 @@ type IndexPageProps = {
         title: string
         description: string
         siteUrl: string
+        author: string
+        introduction: string
       }
     }
     allMarkdownRemark: {
@@ -38,6 +38,7 @@ type IndexPageProps = {
 const Wrapper = styled.div`
   margin: 0 auto;
   max-width: 768px;
+  width: 768px;
   padding: 2rem;
 `
 
@@ -45,7 +46,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
   location: { search },
   data: {
     site: {
-      siteMetadata: { title, description, siteUrl },
+      siteMetadata: { title, description, siteUrl, author, introduction },
     },
     allMarkdownRemark: { edges },
     file: {
@@ -87,7 +88,11 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
 
   return (
     <Wrapper>
-      <Introduction profileImage={gatsbyImageData} />
+      <Introduction
+        profileImage={gatsbyImageData}
+        author={author}
+        introduction={introduction}
+      />
 
       <Template
         title={title}
@@ -114,6 +119,8 @@ export const getPostList = graphql`
         title
         description
         siteUrl
+        author
+        introduction
       }
     }
     allMarkdownRemark(
