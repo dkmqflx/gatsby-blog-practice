@@ -99,11 +99,10 @@ const CategoryList = ({
   return (
     <CategoryListWrapper more={more} ref={categoryRef}>
       {Object.entries(categoryList).map(([name, count]) => (
-        <Li>
+        <Li key={name}>
           <CategoryItem
             to={`/?category=${name}`}
             active={name === selectedCategory}
-            key={name}
           >
             #{name}({count})
           </CategoryItem>
