@@ -1,39 +1,13 @@
-import React, { useMemo, FunctionComponent } from 'react'
-import styled from '@emotion/styled'
+import React, { useMemo } from 'react'
+import { graphql } from 'gatsby'
+import queryString, { ParsedQuery } from 'query-string'
+import { PostListItemType } from 'types/PostItem.types'
+import { IndexPagePropsType } from 'types/MainPage.types'
 import Introduction from 'components/Main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
-import { graphql } from 'gatsby'
-import { PostListItemType } from 'types/PostItem.types'
-import { IGatsbyImageData } from 'gatsby-plugin-image'
-import queryString, { ParsedQuery } from 'query-string'
 import Template from 'components/Common/Template'
-
-type IndexPageProps = {
-  location: {
-    search: string
-  }
-  data: {
-    site: {
-      siteMetadata: {
-        title: string
-        description: string
-        siteUrl: string
-        author: string
-        introduction: string
-      }
-    }
-    allMarkdownRemark: {
-      edges: PostListItemType[]
-    }
-    file: {
-      childImageSharp: {
-        gatsbyImageData: IGatsbyImageData
-      }
-      publicURL: string
-    }
-  }
-}
+import styled from '@emotion/styled'
 
 const Wrapper = styled.div`
   margin: 0 auto;
@@ -42,7 +16,7 @@ const Wrapper = styled.div`
   padding: 2rem;
 `
 
-const IndexPage: FunctionComponent<IndexPageProps> = function ({
+const IndexPage = ({
   location: { search },
   data: {
     site: {
@@ -54,7 +28,7 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
       publicURL,
     },
   },
-}) {
+}: IndexPagePropsType) => {
   const parsed: ParsedQuery<string> = queryString.parse(search)
   const selectedCategory: string =
     typeof parsed.category !== 'string' || !parsed.category
