@@ -22,21 +22,23 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   },
   location: { href },
 }) {
-  const {
-    node: {
-      html,
-      frontmatter: {
-        title,
-        summary,
-        date,
-        categories,
-        thumbnail: {
-          childImageSharp: { gatsbyImageData },
-          publicURL,
+  const [
+    {
+      node: {
+        html,
+        frontmatter: {
+          title,
+          summary,
+          date,
+          categories,
+          thumbnail: {
+            childImageSharp: { gatsbyImageData },
+            publicURL,
+          },
         },
       },
     },
-  } = edges[0]
+  ] = edges
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
