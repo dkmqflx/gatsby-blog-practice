@@ -14,7 +14,6 @@ type PostListProps = {
 const PostListWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-  padding: 50px 0 100px;
 
   @media (max-width: 768px) {
     grid-template-columns: 1fr;

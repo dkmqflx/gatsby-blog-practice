@@ -94,16 +94,17 @@ const IndexPage: FunctionComponent<IndexPageProps> = function ({
         introduction={introduction}
       />
 
+      <CategoryList
+        selectedCategory={selectedCategory}
+        categoryList={categoryList}
+      />
+
       <Template
         title={title}
         description={description}
         url={siteUrl}
         image={publicURL}
       >
-        <CategoryList
-          selectedCategory={selectedCategory}
-          categoryList={categoryList}
-        />
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </Template>
     </Wrapper>
