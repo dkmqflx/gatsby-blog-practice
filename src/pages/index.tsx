@@ -3,18 +3,11 @@ import { graphql } from 'gatsby'
 import queryString, { ParsedQuery } from 'query-string'
 import { PostListItemType } from 'types/PostItem.types'
 import { IndexPagePropsType } from 'types/MainPage.types'
+import Main from 'components/Layout/Main'
 import Introduction from 'components/Main/Introduction'
 import CategoryList, { CategoryListProps } from 'components/Main/CategoryList'
 import PostList from 'components/Main/PostList'
 import Template from 'components/Common/Template'
-import styled from '@emotion/styled'
-
-const Wrapper = styled.div`
-  margin: 0 auto;
-  max-width: 768px;
-  width: 768px;
-  padding: 2rem;
-`
 
 const IndexPage = ({
   location: { search },
@@ -61,7 +54,7 @@ const IndexPage = ({
   )
 
   return (
-    <Wrapper>
+    <Main>
       <Introduction
         profileImage={gatsbyImageData}
         author={author}
@@ -81,7 +74,7 @@ const IndexPage = ({
       >
         <PostList selectedCategory={selectedCategory} posts={edges} />
       </Template>
-    </Wrapper>
+    </Main>
   )
 }
 
