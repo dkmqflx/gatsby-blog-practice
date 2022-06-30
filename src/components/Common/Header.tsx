@@ -4,6 +4,8 @@ import styled from '@emotion/styled'
 
 const HeaderWrapper = styled.header`
   margin-bottom: 28px;
+  display: flex;
+  justify-content: space-between;
 `
 
 const Header = ({ author }: { author: string }) => {
@@ -12,6 +14,7 @@ const Header = ({ author }: { author: string }) => {
       <Link to="/">
         <h1>{author}</h1>
       </Link>
+      <button>mode</button>
     </HeaderWrapper>
   )
 }

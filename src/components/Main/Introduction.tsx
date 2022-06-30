@@ -1,7 +1,6 @@
 import React from 'react'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
 import { Link } from 'gatsby'
-import Header from 'components/Common/Header'
 import ProfileImage from 'components/Main/ProfileImage'
 import styled from '@emotion/styled'
 
@@ -46,13 +45,8 @@ const Introduction = ({
   introduction,
   social,
 }: IntroductionProps) => {
-  console.log(
-    Object.entries(social).map(([key, value]) => <Link to={value}>{key}</Link>),
-  )
   return (
     <Wrapper>
-      <Header author={author}></Header>
-
       <Profile>
         <ProfileImage profileImage={profileImage} />
 

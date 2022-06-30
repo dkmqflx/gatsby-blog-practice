@@ -5,14 +5,10 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
-import Header from 'components/Common/Header'
 import Layout from 'components/Layout'
 
 type PostTemplateProps = {
   data: {
-    site: {
-      siteMetadata: { author: string }
-    }
     allMarkdownRemark: {
       edges: PostPageItemType[]
     }
@@ -23,9 +19,6 @@ type PostTemplateProps = {
 }
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
-    site: {
-      siteMetadata: { author },
-    },
     allMarkdownRemark: { edges },
   },
   location: { href },
@@ -56,7 +49,6 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
         url={href}
         image={publicURL}
       >
-        <Header author={author}></Header>
         <PostHead
           title={title}
           date={date}

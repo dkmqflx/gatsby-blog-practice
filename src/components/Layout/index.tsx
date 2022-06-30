@@ -1,4 +1,8 @@
 import React, { ReactNode } from 'react'
+import { useStaticQuery, graphql } from 'gatsby'
+import { ThemeProvider } from '@emotion/react'
+import Header from 'components/Common/Header'
+
 import styled from '@emotion/styled'
 
 const Wrapper = styled.div`
@@ -9,7 +13,29 @@ const Wrapper = styled.div`
 `
 
 const Layout = ({ children }: { children: ReactNode }) => {
-  return <Wrapper>{children}</Wrapper>
+  const {
+    site: {
+      siteMetadata: { author },
+    },
+  } = useStaticQuery(
+    graphql`
+      query {
+        site {
+          siteMetadata {
+            author
+          }
+        }
+      }
+    `,
+  )
+  return (
+    <>
+      <Wrapper>
+        <Header author={author}></Header>
+        {children}
+      </Wrapper>
+    </>
+  )
 }
 
 export default Layout
