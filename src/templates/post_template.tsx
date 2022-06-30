@@ -6,6 +6,7 @@ import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
 import Header from 'components/Common/Header'
+import Post from 'components/Layout/Post'
 
 type PostTemplateProps = {
   data: {
@@ -48,17 +49,24 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   ] = edges
 
   return (
-    <Template title={title} description={summary} url={href} image={publicURL}>
-      <Header author={author}></Header>
-      <PostHead
+    <Post>
+      <Template
         title={title}
-        date={date}
-        categories={categories}
-        thumbnail={gatsbyImageData}
-      />
-      <PostContent html={html} />
-      <CommentWidget />
-    </Template>
+        description={summary}
+        url={href}
+        image={publicURL}
+      >
+        <Header author={author}></Header>
+        <PostHead
+          title={title}
+          date={date}
+          categories={categories}
+          thumbnail={gatsbyImageData}
+        />
+        <PostContent html={html} />
+        <CommentWidget />
+      </Template>
+    </Post>
   )
 }
 

@@ -10,8 +10,7 @@ export type PostHeadInfoProps = {
 const PostHeadInfoWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  width: 768px;
-  height: 100%;
+  width: 100%;
   margin: 0 auto;
   padding: 60px 0;
 `
@@ -27,10 +26,6 @@ const Title = styled.div`
   -webkit-box-orient: vertical;
   font-size: 45px;
   font-weight: 800;
-
-  @media (max-width: 768px) {
-    font-size: 30px;
-  }
 `
 const PostData = styled.div`
   display: flex;
@@ -39,13 +34,6 @@ const PostData = styled.div`
   margin-top: 10px;
   font-size: 18px;
   font-weight: 700;
-
-  @media (max-width: 768px) {
-    flex-direction: column;
-    align-items: flex-start;
-    font-size: 15px;
-    font-weight: 400;
-  }
 `
 const PostHeadInfo: FunctionComponent<PostHeadInfoProps> = function ({
   title,

@@ -18,9 +18,9 @@ const PostHead: FunctionComponent<PostHeadProps> = function ({
   categories,
 }) {
   return (
-    <PostHeadWrapper>
+    <>
       <PostHeadInfo title={title} date={date} categories={categories} />
-    </PostHeadWrapper>
+    </>
   )
 }
 
