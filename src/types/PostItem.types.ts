@@ -18,6 +18,7 @@ export type PostListItemType = {
     id: string
     fields: {
       slug: string
+      readingTime: { text: string }
     }
     frontmatter: PostFrontmatterType
   }

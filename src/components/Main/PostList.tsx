@@ -24,17 +24,23 @@ const PostList: FunctionComponent<PostListProps> = function ({
     selectedCategory,
     posts,
   )
+
   return (
     <PostListWrapper ref={containerRef}>
       {postList.map(
         ({
           node: {
             id,
-            fields: { slug },
+            fields: { slug, readingTime },
             frontmatter,
           },
         }: PostListItemType) => (
-          <PostItem {...frontmatter} link={slug} key={id} />
+          <PostItem
+            {...frontmatter}
+            link={slug}
+            key={id}
+            readingTime={readingTime}
+          />
         ),
       )}
     </PostListWrapper>

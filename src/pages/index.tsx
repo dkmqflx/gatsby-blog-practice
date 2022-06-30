@@ -99,6 +99,9 @@ export const getPostList = graphql`
           id
           fields {
             slug
+            readingTime {
+              text
+            }
           }
           frontmatter {
             title

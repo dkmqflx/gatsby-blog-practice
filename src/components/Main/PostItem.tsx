@@ -3,7 +3,10 @@ import styled from '@emotion/styled'
 import { Link } from 'gatsby'
 import { PostFrontmatterType } from 'types/PostItem.types'
 
-type PostItemProps = PostFrontmatterType & { link: string }
+type PostItemProps = PostFrontmatterType & {
+  link: string
+  readingTime: { text: string }
+}
 
 const PostItemWrapper = styled(Link)`
   display: flex;
@@ -66,12 +69,13 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
   date,
   summary,
   link,
+  readingTime,
 }) {
   return (
     <PostItemWrapper to={link}>
       <PostItemContent>
         <Title>{title}</Title>
-        <Date>{date}</Date>
+        <Date>{`${date} ${readingTime.text}`}</Date>
         <Summary>{summary}</Summary>
       </PostItemContent>
     </PostItemWrapper>
