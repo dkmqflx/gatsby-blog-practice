@@ -14,12 +14,6 @@ type PostListProps = {
 const PostListWrapper = styled.div`
   width: 100%;
   margin: 0 auto;
-
-  @media (max-width: 768px) {
-    grid-template-columns: 1fr;
-    width: 100%;
-    padding: 50px 20px;
-  }
 `
 
 const PostList: FunctionComponent<PostListProps> = function ({
@@ -30,7 +24,6 @@ const PostList: FunctionComponent<PostListProps> = function ({
     selectedCategory,
     posts,
   )
-
   return (
     <PostListWrapper ref={containerRef}>
       {postList.map(

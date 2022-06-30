@@ -48,23 +48,6 @@ const Date = styled.div`
   opacity: 0.7;
 `
 
-const Category = styled.div`
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 10px;
-  margin: 10px -5px;
-`
-
-const CategoryItem = styled.div`
-  margin: 2.5px 5px;
-  padding: 3px 5px;
-  border-radius: 3px;
-  background: black;
-  font-size: 14px;
-  font-weight: 700;
-  color: white;
-`
-
 const Summary = styled.div`
   display: -webkit-box;
   overflow: hidden;
@@ -81,7 +64,6 @@ const Summary = styled.div`
 const PostItem: FunctionComponent<PostItemProps> = function ({
   title,
   date,
-  categories,
   summary,
   link,
 }) {
@@ -90,11 +72,6 @@ const PostItem: FunctionComponent<PostItemProps> = function ({
       <PostItemContent>
         <Title>{title}</Title>
         <Date>{date}</Date>
-        <Category>
-          {categories.map(category => (
-            <CategoryItem key={category}>{category}</CategoryItem>
-          ))}
-        </Category>
         <Summary>{summary}</Summary>
       </PostItemContent>
     </PostItemWrapper>
