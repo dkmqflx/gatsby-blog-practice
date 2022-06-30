@@ -13,7 +13,14 @@ const IndexPage = ({
   location: { search },
   data: {
     site: {
-      siteMetadata: { title, description, siteUrl, author, introduction },
+      siteMetadata: {
+        title,
+        description,
+        siteUrl,
+        author,
+        introduction,
+        social,
+      },
     },
     allMarkdownRemark: { edges },
     file: {
@@ -52,13 +59,13 @@ const IndexPage = ({
       ),
     [],
   )
-
   return (
     <Main>
       <Introduction
         profileImage={gatsbyImageData}
         author={author}
         introduction={introduction}
+        social={social}
       />
 
       <CategoryList
@@ -89,6 +96,14 @@ export const getPostList = graphql`
         siteUrl
         author
         introduction
+        social {
+          github
+          linkedin
+          twitter
+          facebook
+          medium
+          instagram
+        }
       }
     }
     allMarkdownRemark(

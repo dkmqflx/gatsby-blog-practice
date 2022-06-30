@@ -13,6 +13,14 @@ export type IndexPagePropsType = {
         siteUrl: string
         author: string
         introduction: string
+        social: {
+          github: string
+          linkedin: string
+          twitter: string
+          facebook: string
+          medium: string
+          instagram: string
+        }
       }
     }
     allMarkdownRemark: {

@@ -1,5 +1,6 @@
 import React from 'react'
 import { IGatsbyImageData } from 'gatsby-plugin-image'
+import { Link } from 'gatsby'
 import Header from 'components/Common/Header'
 import ProfileImage from 'components/Main/ProfileImage'
 import styled from '@emotion/styled'
@@ -17,17 +18,37 @@ const Profile = styled.div`
   align-items: center;
 `
 
+const SocalLink = styled(Link)`
+  font-weight: bold;
+
+  &:not(:first-of-type) {
+    margin-left: 4px;
+  }
+`
+
 type IntroductionProps = {
   profileImage: IGatsbyImageData
   author: string
   introduction: string
+  social: {
+    github: string
+    linkedin: string
+    twitter: string
+    facebook: string
+    medium: string
+    instagram: string
+  }
 }
 
 const Introduction = ({
   profileImage,
   author,
   introduction,
+  social,
 }: IntroductionProps) => {
+  console.log(
+    Object.entries(social).map(([key, value]) => <Link to={value}>{key}</Link>),
+  )
   return (
     <Wrapper>
       <Header author={author}></Header>
@@ -38,6 +59,14 @@ const Introduction = ({
         <div>
           <span>Written by {author}</span>
           <p>{introduction}</p>
+          {Object.entries(social).map(
+            ([key, value]) =>
+              value && (
+                <SocalLink key={key} to={value}>
+                  {key}
+                </SocalLink>
+              ),
+          )}
         </div>
       </Profile>
     </Wrapper>
