@@ -5,9 +5,13 @@ import Template from 'components/Common/Template'
 import PostHead from 'components/Post/PostHead'
 import PostContent from 'components/Post/PostContent'
 import CommentWidget from 'components/Post/CommentWidget'
+import Header from 'components/Common/Header'
 
 type PostTemplateProps = {
   data: {
+    site: {
+      siteMetadata: { author: string }
+    }
     allMarkdownRemark: {
       edges: PostPageItemType[]
     }
@@ -18,6 +22,9 @@ type PostTemplateProps = {
 }
 const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
   data: {
+    site: {
+      siteMetadata: { author },
+    },
     allMarkdownRemark: { edges },
   },
   location: { href },
@@ -42,6 +49,7 @@ const PostTemplate: FunctionComponent<PostTemplateProps> = function ({
 
   return (
     <Template title={title} description={summary} url={href} image={publicURL}>
+      <Header author={author}></Header>
       <PostHead
         title={title}
         date={date}
@@ -58,6 +66,12 @@ export default PostTemplate
 
 export const queryMarkdownDataBySlug = graphql`
   query queryMarkdownDataBySlug($slug: String) {
+    site {
+      siteMetadata {
+        author
+      }
+    }
+
     allMarkdownRemark(filter: { fields: { slug: { eq: $slug } } }) {
       edges {
         node {
