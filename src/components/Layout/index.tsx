@@ -7,8 +7,9 @@ const Wrapper = styled.div`
   width: 768px;
   padding: 28px;
 `
-const Post = ({ children }: { children: ReactNode }) => {
+
+const Layout = ({ children }: { children: ReactNode }) => {
   return <Wrapper>{children}</Wrapper>
 }
 
-export default Post
+export default Layout
