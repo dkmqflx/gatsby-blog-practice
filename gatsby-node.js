@@ -24,7 +24,11 @@ exports.onCreateNode = ({ node, getNode, actions }) => {
   if (node.internal.type === `MarkdownRemark`) {
     const slug = createFilePath({ node, getNode })
 
-    createNodeField({ node, name: 'slug', value: slug })
+    createNodeField({
+      node,
+      name: 'slug',
+      value: slug,
+    })
   }
 }
 
@@ -46,6 +50,9 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
             node {
               fields {
                 slug
+                readingTime {
+                  text
+                }
               }
             }
           }
