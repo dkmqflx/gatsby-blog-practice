@@ -2,6 +2,7 @@ const React = require('react')
 
 exports.onRenderBody = ({ setPreBodyComponents }) =>
   setPreBodyComponents([
+    <div>this is header</div>,
     <script
       dangerouslySetInnerHTML={{
         __html: `(() => {
