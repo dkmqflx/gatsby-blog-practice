@@ -6,11 +6,11 @@ module.exports = {
     introduction: 'I explain with words and code..',
     siteUrl: 'https://my-website-link.com', // 배포 후 변경 예정
     social: {
-      github: `1`,
-      linkedin: `1`,
-      twitter: `1`,
-      facebook: `1`,
-      medium: `1`,
+      github: ``,
+      linkedin: ``,
+      twitter: ``,
+      facebook: ``,
+      medium: ``,
       instagram: ``,
     },
   },
