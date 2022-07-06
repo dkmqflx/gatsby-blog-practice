@@ -23,6 +23,17 @@ const defaultStyle = css`
     text-decoration: none;
     cursor: pointer;
   }
+
+  body {
+    background-color: #fff;
+    color: #000;
+
+    &.theme-dark {
+      background-color: #000;
+      color: #fff;
+    }
+    transition: background-color 0.3s linear;
+  }
 `
 
 const GlobalStyle: FunctionComponent = function () {

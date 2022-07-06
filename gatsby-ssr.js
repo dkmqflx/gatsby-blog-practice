@@ -1,7 +1,17 @@
-/**
- * Implement Gatsby's SSR (Server Side Rendering) APIs in this file.
- *
- * See: https://www.gatsbyjs.com/docs/ssr-apis/
- */
+const React = require('react')
 
-// You can delete this file if you're not using it
+exports.onRenderBody = ({ setHeadComponents }) =>
+  setHeadComponents([
+    <script
+      dangerouslySetInnerHTML={{
+        __html: `(function () {
+        try {
+          const blogTheme =
+            localStorage.getItem('blog_theme') ||
+            window.matchMedia('(prefers-color-scheme: dark)').matches
+          if (blogTheme) document.body.classList.add('theme-dark')
+        } catch (error) {}
+      })()`,
+      }}
+    />,
+  ])
