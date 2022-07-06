@@ -1,7 +1,7 @@
 const React = require('react')
 
-exports.onRenderBody = ({ setPreBodyComponents }) =>
-  setPreBodyComponents([
+const onRenderBody = ({ setHeadComponents }) =>
+  setHeadComponents([
     <div>this is header</div>,
     <script
       dangerouslySetInnerHTML={{
@@ -24,3 +24,5 @@ exports.onRenderBody = ({ setPreBodyComponents }) =>
       }}
     />,
   ])
+
+export { onRenderBody }
