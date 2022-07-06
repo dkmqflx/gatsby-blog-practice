@@ -25,8 +25,10 @@ const defaultStyle = css`
   }
 
   body {
-    background-color: #fff;
-    color: #000;
+    &.theme-light {
+      background-color: #fff;
+      color: #000;
+    }
 
     &.theme-dark {
       background-color: #000;

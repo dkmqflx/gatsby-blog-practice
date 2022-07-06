@@ -1,26 +1,32 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 
 const DARK_THEME = 'dark'
+const LIGHT_THEME = 'light'
 const BLOG_THEME = 'blog_theme'
+
+type ThemeType = 'dark' | 'light'
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>()
 
-  const toggleTheme = () => {
-    if (theme) {
-      localStorage.removeItem(BLOG_THEME)
-      setTheme(null)
-    } else {
-      localStorage.setItem(BLOG_THEME, 'dark')
-      setTheme(DARK_THEME)
+  const toggleTheme = (theme: ThemeType) => {
+    switch (theme) {
+      case DARK_THEME:
+        localStorage.setItem(BLOG_THEME, DARK_THEME)
+        setTheme(DARK_THEME)
+        document.body.classList.add('theme-dark')
+        document.body.classList.remove('theme-light')
+        break
+      case LIGHT_THEME:
+        localStorage.setItem(BLOG_THEME, LIGHT_THEME)
+        setTheme(LIGHT_THEME)
+        document.body.classList.add('theme-light')
+        document.body.classList.remove('theme-dark')
+        break
+      default:
+        break
     }
-    document.body.classList.toggle('theme-dark')
   }
-  useEffect(() => {
-    if (window) {
-      setTheme(localStorage.getItem(BLOG_THEME))
-    }
-  }, [])
 
   return { theme, toggleTheme }
 }

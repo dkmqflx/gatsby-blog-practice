@@ -15,17 +15,29 @@ type HeaderPropsType = {
 
 const Header = ({ author }: HeaderPropsType) => {
   const { theme, toggleTheme } = useTheme()
-
+  console.log({ theme })
+  // const set = () => {
+  //   localStorage.setItem('blog_theme', 'dark')
+  //   console.log('dark')
+  // }
+  // const reset = () => {
+  //   localStorage.setItem('blog_theme', 'light')
+  //   console.log('light')
+  // }
   return (
     <HeaderWrapper>
       <Link to="/">
         <h1>{author}</h1>
       </Link>
-      {theme ? (
-        <button onClick={() => toggleTheme()}>To Light</button>
+      {theme === 'dark' ? (
+        <button onClick={() => toggleTheme('light')}>To Light</button>
       ) : (
-        <button onClick={() => toggleTheme()}>To Dark</button>
+        <button onClick={() => toggleTheme('dark')}>To Dark</button>
       )}
+      {/* 
+      <button onClick={() => set()}>To Light</button>
+
+      <button onClick={() => reset()}>To Dark</button> */}
     </HeaderWrapper>
   )
 }
