@@ -1,7 +1,7 @@
 const React = require('react')
 
-exports.onRenderBody = ({ setHeadComponents }) =>
-  setHeadComponents([
+exports.onRenderBody = ({ setPreBodyComponents }) =>
+  setPreBodyComponents([
     <script
       dangerouslySetInnerHTML={{
         __html: `(() => {
