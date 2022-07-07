@@ -8,7 +8,7 @@ type ThemeType = 'dark' | 'light'
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>(
-    document.body.classList.value,
+    window && document.body.classList.value,
   )
 
   // useEffect(() => {
