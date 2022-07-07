@@ -2,7 +2,6 @@ const React = require('react')
 
 const onRenderBody = ({ setHeadComponents }) =>
   setHeadComponents([
-    <div>this is header</div>,
     <script
       dangerouslySetInnerHTML={{
         __html: `(() => {
