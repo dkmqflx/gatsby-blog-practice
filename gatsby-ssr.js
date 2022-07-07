@@ -12,6 +12,7 @@ export const onRenderBody = ({ setPreBodyComponents }) =>
           const setTheme = (theme) => {
             document.body.classList.add(theme)
             localStorage.setItem('blog_theme', theme) 
+            window.__theme = theme
           }
 
           setTheme(blogTheme || prefersColorScheme)
