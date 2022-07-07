@@ -26,13 +26,13 @@ const defaultStyle = css`
 
   body {
     background-color: red;
-    &.theme-light {
+    &.light {
       background-color: beige;
       color: #000;
       /* transition: background-color 0.3s linear; */
     }
 
-    &.theme-dark {
+    &.dark {
       background-color: #000;
       color: #fff;
       /* transition: background-color 0.3s linear; */

@@ -21,10 +21,10 @@ const Header = ({ author }: HeaderPropsType) => {
       <Link to="/">
         <h1>{author}</h1>
       </Link>
-      {theme === 'theme-dark' ? (
-        <button onClick={() => toggleTheme('theme-light')}>To Light</button>
+      {theme === 'dark' ? (
+        <button onClick={() => toggleTheme('light')}>To Light</button>
       ) : (
-        <button onClick={() => toggleTheme('theme-dark')}>To Dark</button>
+        <button onClick={() => toggleTheme('dark')}>To Dark</button>
       )}
     </HeaderWrapper>
   )

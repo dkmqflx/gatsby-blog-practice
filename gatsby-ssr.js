@@ -7,7 +7,7 @@ export const onRenderBody = ({ setPreBodyComponents }) =>
           const blogTheme =
             localStorage.getItem('blog_theme') 
 
-          const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light'
+          const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
 
           const setTheme = (theme) => {
             document.body.classList.add(theme)

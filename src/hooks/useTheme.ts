@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react'
 
-const DARK_THEME = 'theme-dark'
-const LIGHT_THEME = 'theme-light'
+const DARK_THEME = 'dark'
+const LIGHT_THEME = 'light'
 const BLOG_THEME = 'blog_theme'
 
-type ThemeType = 'theme-dark' | 'theme-light'
+type ThemeType = 'dark' | 'light'
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>()
@@ -20,14 +20,14 @@ const useTheme = () => {
       case DARK_THEME:
         localStorage.setItem(BLOG_THEME, DARK_THEME)
         setTheme(DARK_THEME)
-        document.body.classList.add('theme-dark')
-        document.body.classList.remove('theme-light')
+        document.body.classList.add('dark')
+        document.body.classList.remove('light')
         break
       case LIGHT_THEME:
         localStorage.setItem(BLOG_THEME, LIGHT_THEME)
         setTheme(LIGHT_THEME)
-        document.body.classList.add('theme-light')
-        document.body.classList.remove('theme-dark')
+        document.body.classList.add('light')
+        document.body.classList.remove('dark')
         break
       default:
         break
