@@ -1,5 +1,3 @@
-// const React = require('react')
-
 export const onRenderBody = ({ setPreBodyComponents }) =>
   setPreBodyComponents([
     <script
@@ -9,14 +7,14 @@ export const onRenderBody = ({ setPreBodyComponents }) =>
           const blogTheme =
             localStorage.getItem('blog_theme') 
 
-          const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches
+          const prefersColorScheme = window.matchMedia('(prefers-color-scheme: dark)').matches ? 'theme-dark' : 'theme-light'
 
-          if (blogTheme === 'dark' || prefersColorScheme) {
-            document.body.classList.add('theme-dark')
+          const setTheme = (theme) => {
+            document.body.classList.add(theme)
+            localStorage.setItem('blog_theme', theme) 
           }
-          else{
-            document.body.classList.add('theme-light')
-          }
+
+          setTheme(blogTheme || prefersColorScheme)
 
         } catch (error) {}
       })()`,

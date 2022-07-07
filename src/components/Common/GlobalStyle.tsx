@@ -25,14 +25,17 @@ const defaultStyle = css`
   }
 
   body {
+    background-color: red;
     &.theme-light {
-      background-color: #fff;
+      background-color: beige;
       color: #000;
+      /* transition: background-color 0.3s linear; */
     }
 
     &.theme-dark {
       background-color: #000;
       color: #fff;
+      /* transition: background-color 0.3s linear; */
     }
     transition: background-color 0.3s linear;
   }

@@ -1,13 +1,19 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
-const DARK_THEME = 'dark'
-const LIGHT_THEME = 'light'
+const DARK_THEME = 'theme-dark'
+const LIGHT_THEME = 'theme-light'
 const BLOG_THEME = 'blog_theme'
 
-type ThemeType = 'dark' | 'light'
+type ThemeType = 'theme-dark' | 'theme-light'
 
 const useTheme = () => {
   const [theme, setTheme] = useState<string | null>()
+
+  useEffect(() => {
+    document.body.classList.value === DARK_THEME
+      ? setTheme(DARK_THEME)
+      : setTheme(LIGHT_THEME)
+  }, [])
 
   const toggleTheme = (theme: ThemeType) => {
     switch (theme) {
