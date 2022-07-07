@@ -7,15 +7,15 @@ const BLOG_THEME = 'blog_theme'
 type ThemeType = 'dark' | 'light'
 
 const Toggle = () => {
-  if (typeof window === 'undefined') {
-    return null
+  const initialTheme = () => {
+    if (typeof window !== 'undefined') {
+      return document.body.classList.value
+    } else {
+      return window?.['__theme']
+    }
   }
 
-  const [theme, setTheme] = useState<string | null>(
-    typeof window !== 'undefined'
-      ? document.body.classList.value
-      : window?.['__theme'],
-  )
+  const [theme, setTheme] = useState<string | null>(initialTheme())
 
   const toggleTheme = (theme: ThemeType) => {
     switch (theme) {
