@@ -1,6 +1,6 @@
 const React = require('react')
 
-const onRenderBody = ({ setHeadComponents }) =>
+export const onRenderBody = ({ setHeadComponents }) =>
   setHeadComponents([
     <script
       dangerouslySetInnerHTML={{
@@ -23,5 +23,3 @@ const onRenderBody = ({ setHeadComponents }) =>
       }}
     />,
   ])
-
-export { onRenderBody }
