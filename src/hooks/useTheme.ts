@@ -7,13 +7,16 @@ const BLOG_THEME = 'blog_theme'
 type ThemeType = 'dark' | 'light'
 
 const useTheme = () => {
-  const [theme, setTheme] = useState<string | null>()
+  const [theme, setTheme] = useState<string | null>(
+    document.body.classList.value,
+  )
 
-  useEffect(() => {
-    document.body.classList.value === DARK_THEME
-      ? setTheme(DARK_THEME)
-      : setTheme(LIGHT_THEME)
-  }, [])
+  // useEffect(() => {
+  //   console.log('useEffect')
+  //   document.body.classList.value === DARK_THEME
+  //     ? setTheme(DARK_THEME)
+  //     : setTheme(LIGHT_THEME)
+  // }, [])
 
   const toggleTheme = (theme: ThemeType) => {
     switch (theme) {

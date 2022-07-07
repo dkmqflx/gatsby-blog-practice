@@ -37,7 +37,7 @@ const defaultStyle = css`
       color: #fff;
       /* transition: background-color 0.3s linear; */
     }
-    transition: background-color 0.3s linear;
+    /* transition: background-color 0.3s linear; */
   }
 `
 
