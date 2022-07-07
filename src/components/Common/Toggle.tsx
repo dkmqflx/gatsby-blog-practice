@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import React, { useState } from 'react'
 
 const DARK_THEME = 'dark'
 const LIGHT_THEME = 'light'
@@ -6,7 +6,7 @@ const BLOG_THEME = 'blog_theme'
 
 type ThemeType = 'dark' | 'light'
 
-const useTheme = () => {
+const Toggle = () => {
   if (typeof window === 'undefined') {
     return null
   }
@@ -16,13 +16,6 @@ const useTheme = () => {
       ? document.body.classList.value
       : window?.['__theme'],
   )
-
-  // useEffect(() => {
-  //   console.log('useEffect')
-  //   document.body.classList.value === DARK_THEME
-  //     ? setTheme(DARK_THEME)
-  //     : setTheme(LIGHT_THEME)
-  // }, [])
 
   const toggleTheme = (theme: ThemeType) => {
     switch (theme) {
@@ -43,7 +36,15 @@ const useTheme = () => {
     }
   }
 
-  return { theme, toggleTheme }
+  return (
+    <>
+      {theme === DARK_THEME ? (
+        <button onClick={() => toggleTheme('light')}>To Light</button>
+      ) : (
+        <button onClick={() => toggleTheme('dark')}>To Dark</button>
+      )}
+    </>
+  )
 }
 
-export default useTheme
+export default Toggle
